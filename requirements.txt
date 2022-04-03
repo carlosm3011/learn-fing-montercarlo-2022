@@ -1,0 +1,5 @@
+tabulate
+scipy
+notebook
+matplotlib
+pathos
