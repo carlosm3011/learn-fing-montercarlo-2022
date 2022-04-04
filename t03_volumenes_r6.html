@@ -14603,16 +14603,16 @@ valores obtenidos parecen consistentes.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Instalar dependencias</span>
-<span class="o">!</span>pip install -r requirements.txt
+<span class="o">!</span>pip install -q -r requirements.txt
 </pre></div>
 
      </div>
@@ -14620,100 +14620,12 @@ valores obtenidos parecen consistentes.
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: tabulate in /home/carlos/.local/lib/python3.10/site-packages (from -r requirements.txt (line 1)) (0.8.9)
-Requirement already satisfied: scipy in /home/carlos/.local/lib/python3.10/site-packages (from -r requirements.txt (line 2)) (1.8.0)
-Requirement already satisfied: notebook in /home/carlos/.local/lib/python3.10/site-packages (from -r requirements.txt (line 3)) (6.4.10)
-Requirement already satisfied: matplotlib in /home/carlos/.local/lib/python3.10/site-packages (from -r requirements.txt (line 4)) (3.5.1)
-Requirement already satisfied: numpy&lt;1.25.0,&gt;=1.17.3 in /usr/lib/python3.10/site-packages (from scipy-&gt;-r requirements.txt (line 2)) (1.22.2)
-Requirement already satisfied: jinja2 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (3.1.1)
-Requirement already satisfied: nest-asyncio&gt;=1.5 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (1.5.5)
-Requirement already satisfied: argon2-cffi in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (21.3.0)
-Requirement already satisfied: pyzmq&gt;=17 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (22.3.0)
-Requirement already satisfied: prometheus-client in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (0.13.1)
-Requirement already satisfied: ipykernel in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (6.11.0)
-Requirement already satisfied: jupyter-client&gt;=5.3.4 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (7.2.1)
-Requirement already satisfied: nbconvert&gt;=5 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (6.4.5)
-Requirement already satisfied: Send2Trash&gt;=1.8.0 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (1.8.0)
-Requirement already satisfied: nbformat in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (5.2.0)
-Requirement already satisfied: jupyter-core&gt;=4.6.1 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (4.9.2)
-Requirement already satisfied: traitlets&gt;=4.2.1 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (5.1.1)
-Requirement already satisfied: tornado&gt;=6.1 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (6.1)
-Requirement already satisfied: terminado&gt;=0.8.3 in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (0.13.3)
-Requirement already satisfied: ipython-genutils in /home/carlos/.local/lib/python3.10/site-packages (from notebook-&gt;-r requirements.txt (line 3)) (0.2.0)
-Requirement already satisfied: pillow&gt;=6.2.0 in /usr/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 4)) (9.0.1)
-Requirement already satisfied: cycler&gt;=0.10 in /home/carlos/.local/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 4)) (0.11.0)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /home/carlos/.local/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 4)) (2.8.2)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /usr/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 4)) (3.0.0)
-Requirement already satisfied: packaging&gt;=20.0 in /usr/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 4)) (20.9)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /home/carlos/.local/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 4)) (4.31.2)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/carlos/.local/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 4)) (1.4.2)
-Requirement already satisfied: entrypoints in /usr/lib/python3.10/site-packages (from jupyter-client&gt;=5.3.4-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.4)
-Requirement already satisfied: jupyterlab-pygments in /home/carlos/.local/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.1.2)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/carlos/.local/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (2.1.1)
-Requirement already satisfied: nbclient&lt;0.6.0,&gt;=0.5.0 in /home/carlos/.local/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.5.13)
-Requirement already satisfied: testpath in /home/carlos/.local/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.6.0)
-Requirement already satisfied: beautifulsoup4 in /usr/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (4.10.0)
-Requirement already satisfied: pygments&gt;=2.4.1 in /home/carlos/.local/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (2.11.2)
-Requirement already satisfied: defusedxml in /home/carlos/.local/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.7.1)
-Requirement already satisfied: bleach in /home/carlos/.local/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (4.1.0)
-Requirement already satisfied: pandocfilters&gt;=1.4.1 in /home/carlos/.local/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (1.5.0)
-Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /home/carlos/.local/lib/python3.10/site-packages (from nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.8.4)
-Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/lib/python3.10/site-packages (from nbformat-&gt;notebook-&gt;-r requirements.txt (line 3)) (3.2.0)
-Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3.10/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;-r requirements.txt (line 4)) (1.16.0)
-Requirement already satisfied: ptyprocess in /usr/lib/python3.10/site-packages (from terminado&gt;=0.8.3-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.7.0)
-Requirement already satisfied: argon2-cffi-bindings in /home/carlos/.local/lib/python3.10/site-packages (from argon2-cffi-&gt;notebook-&gt;-r requirements.txt (line 3)) (21.2.0)
-Requirement already satisfied: psutil in /usr/lib/python3.10/site-packages (from ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (5.9.0)
-Requirement already satisfied: matplotlib-inline&gt;=0.1 in /home/carlos/.local/lib/python3.10/site-packages (from ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.1.3)
-Requirement already satisfied: setuptools&gt;=60 in /home/carlos/.local/lib/python3.10/site-packages (from ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (61.3.1)
-Requirement already satisfied: debugpy&gt;=1.0 in /home/carlos/.local/lib/python3.10/site-packages (from ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (1.6.0)
-Requirement already satisfied: ipython&gt;=7.23.1 in /home/carlos/.local/lib/python3.10/site-packages (from ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (8.2.0)
-Requirement already satisfied: pexpect&gt;4.3 in /usr/lib/python3.10/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (4.8.0)
-Requirement already satisfied: stack-data in /home/carlos/.local/lib/python3.10/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.2.0)
-Requirement already satisfied: backcall in /home/carlos/.local/lib/python3.10/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.2.0)
-Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /home/carlos/.local/lib/python3.10/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (3.0.28)
-Requirement already satisfied: decorator in /home/carlos/.local/lib/python3.10/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (5.1.1)
-Requirement already satisfied: jedi&gt;=0.16 in /home/carlos/.local/lib/python3.10/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.18.1)
-Requirement already satisfied: pickleshare in /home/carlos/.local/lib/python3.10/site-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.7.5)
-Requirement already satisfied: attrs&gt;=17.4.0 in /usr/lib/python3.10/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat-&gt;notebook-&gt;-r requirements.txt (line 3)) (21.4.0)
-Requirement already satisfied: pyrsistent&gt;=0.14.0 in /usr/lib/python3.10/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.18.1)
-Requirement already satisfied: cffi&gt;=1.0.1 in /usr/lib/python3.10/site-packages (from argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook-&gt;-r requirements.txt (line 3)) (1.15.0)
-Requirement already satisfied: soupsieve&gt;1.2 in /usr/lib/python3.10/site-packages (from beautifulsoup4-&gt;nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (2.3.1)
-Requirement already satisfied: webencodings in /usr/lib/python3.10/site-packages (from bleach-&gt;nbconvert&gt;=5-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.5.1)
-Requirement already satisfied: pycparser in /usr/lib/python3.10/site-packages (from cffi&gt;=1.0.1-&gt;argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook-&gt;-r requirements.txt (line 3)) (2.21)
-Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /home/carlos/.local/lib/python3.10/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.8.3)
-Requirement already satisfied: wcwidth in /home/carlos/.local/lib/python3.10/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.2.5)
-Requirement already satisfied: executing in /home/carlos/.local/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.8.3)
-Requirement already satisfied: pure-eval in /home/carlos/.local/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (0.2.2)
-Requirement already satisfied: asttokens in /home/carlos/.local/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;-r requirements.txt (line 3)) (2.0.5)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -14790,14 +14702,15 @@ Requirement already satisfied: asttokens in /home/carlos/.local/lib/python3.10/s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Implemento pseudocodigo Montecarlo</span>
 
 <span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">from</span> <span class="nn">pathos.multiprocessing</span> <span class="kn">import</span> <span class="n">ProcessPool</span> <span class="k">as</span> <span class="n">Pool</span>   
 
-<span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#@functools.lru_cache(maxsize=128)</span>
 <span class="k">def</span> <span class="nf">MetodoMonteCarlo</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">FVolumen</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implementa el pseudocodigo de MC</span>
@@ -14820,10 +14733,45 @@ Requirement already satisfied: asttokens in /home/carlos/.local/lib/python3.10/s
     <span class="k">return</span> <span class="p">(</span><span class="n">VolR</span><span class="p">,</span> <span class="n">VarVorR</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span>  <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
 <span class="c1"># end def</span>
 
+<span class="c1"># Version paralelizada de Montecarlo</span>
+<span class="k">def</span> <span class="nf">MetodoMonteCarloParalelo</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">FVolumen</span><span class="p">,</span> <span class="n">hilos</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        version paralelizada del montecarlo</span>
+<span class="sd">        N: numero de muestras</span>
+<span class="sd">        FVolumen: funcion que implementa el volumen</span>
+<span class="sd">        hilos: cantidad de hilos en el pool de tareas</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+
+    <span class="n">args1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">args2</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">hilos</span><span class="p">):</span>
+        <span class="n">args1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">hilos</span><span class="p">)</span> <span class="p">)</span>
+        <span class="n">args2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">FVolumen</span><span class="p">)</span>
+    
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">hilos</span><span class="p">)</span>
+    <span class="n">resultados</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">MetodoMonteCarlo</span><span class="p">,</span> <span class="n">args1</span><span class="p">,</span> <span class="n">args2</span> <span class="p">)</span>
+    <span class="c1">#print(resultados)</span>
+
+    <span class="c1"># unir los resultados para producir el resultado final</span>
+    <span class="n">Stotal</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Ntotal</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">hilos</span><span class="p">):</span>
+        <span class="n">Stotal</span> <span class="o">=</span> <span class="n">Stotal</span> <span class="o">+</span> <span class="n">resultados</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">Ntotal</span> <span class="o">=</span> <span class="n">Ntotal</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">hilos</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="n">VolR</span> <span class="o">=</span> <span class="n">Stotal</span> <span class="o">/</span> <span class="n">Ntotal</span>
+    <span class="n">VarVorR</span> <span class="o">=</span> <span class="p">(</span><span class="n">Stotal</span><span class="o">/</span><span class="n">Ntotal</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Stotal</span><span class="o">/</span><span class="n">Ntotal</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Ntotal</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">VolR</span><span class="p">,</span> <span class="n">VarVorR</span><span class="p">,</span> <span class="n">Stotal</span><span class="p">,</span>  <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+   
+<span class="c1"># end def</span>
+
 <span class="n">VolH</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="mf">0.35</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span><span class="o">/</span><span class="mi">6</span>
 
 <span class="c1"># Caclulo del volumen de la hiperesfera por MMC</span>
 <span class="p">(</span><span class="n">VolR</span><span class="p">,</span> <span class="n">VarVolR</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">execTime</span><span class="p">)</span> <span class="o">=</span> <span class="n">MetodoMonteCarlo</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">puntoDentroVolumen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+<span class="c1">#print(MetodoMonteCarloParalelo(10**6, lambda x: puntoDentroVolumen(x, False), 4))</span>
 </pre></div>
 
      </div>
@@ -14848,7 +14796,7 @@ Requirement already satisfied: asttokens in /home/carlos/.local/lib/python3.10/s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Volumen hiper esfera por MMC = </span><span class="si">{:e}</span><span class="s2">, Varianza = </span><span class="si">{:e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">VolR</span><span class="p">,</span> <span class="n">VarVolR</span><span class="p">))</span>
@@ -14875,9 +14823,9 @@ Requirement already satisfied: asttokens in /home/carlos/.local/lib/python3.10/s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Volumen hiper esfera por MMC = 9.439000e-03, Varianza = 9.349915e-09
+<pre>Volumen hiper esfera por MMC = 9.444000e-03, Varianza = 9.354820e-09
  
-Volumen hiper esfera analitico = 9.499629e-03, diferencia MMC - analitico = 0.642%
+Volumen hiper esfera analitico = 9.499629e-03, diferencia MMC - analitico = 0.589%
 </pre>
 </div>
 </div>
@@ -14926,7 +14874,7 @@ Volumen hiper esfera analitico = 9.499629e-03, diferencia MMC - analitico = 0.64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;Vol hiperesfera (analitico)&#39;</span><span class="p">,</span> <span class="s1">&#39;Vol hiperesfera+restricciones&#39;</span><span class="p">,</span> <span class="s1">&#39;Varianza&#39;</span><span class="p">,</span> <span class="s1">&#39;Tiempo (s)&#39;</span><span class="p">]</span> <span class="p">]</span>
@@ -14954,7 +14902,7 @@ Volumen hiper esfera analitico = 9.499629e-03, diferencia MMC - analitico = 0.64
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
 
@@ -14962,11 +14910,11 @@ Volumen hiper esfera analitico = 9.499629e-03, diferencia MMC - analitico = 0.64
 <table>
 <tbody>
 <tr><td>N      </td><td>S  </td><td>Vol hiperesfera (analitico)</td><td>Vol hiperesfera+restricciones</td><td>Varianza    </td><td>Tiempo (s)</td></tr>
-<tr><td>100    </td><td>0  </td><td>9.499629e-03               </td><td>0.000000e+00                 </td><td>0.000000e+00</td><td>0.000844  </td></tr>
-<tr><td>1000   </td><td>0  </td><td>9.499629e-03               </td><td>0.000000e+00                 </td><td>0.000000e+00</td><td>0.005523  </td></tr>
-<tr><td>10000  </td><td>3  </td><td>9.499629e-03               </td><td>3.000000e-04                 </td><td>2.999400e-08</td><td>0.056466  </td></tr>
-<tr><td>100000 </td><td>24 </td><td>9.499629e-03               </td><td>2.400000e-04                 </td><td>2.399448e-09</td><td>0.470523  </td></tr>
-<tr><td>1000000</td><td>296</td><td>9.499629e-03               </td><td>2.960000e-04                 </td><td>2.959127e-10</td><td>4.586955  </td></tr>
+<tr><td>100    </td><td>0  </td><td>9.499629e-03               </td><td>0.000000e+00                 </td><td>0.000000e+00</td><td>0.000629  </td></tr>
+<tr><td>1000   </td><td>0  </td><td>9.499629e-03               </td><td>0.000000e+00                 </td><td>0.000000e+00</td><td>0.005882  </td></tr>
+<tr><td>10000  </td><td>4  </td><td>9.499629e-03               </td><td>4.000000e-04                 </td><td>3.998800e-08</td><td>0.112124  </td></tr>
+<tr><td>100000 </td><td>21 </td><td>9.499629e-03               </td><td>2.100000e-04                 </td><td>2.099580e-09</td><td>0.671078  </td></tr>
+<tr><td>1000000</td><td>315</td><td>9.499629e-03               </td><td>3.150000e-04                 </td><td>3.149011e-10</td><td>6.242878  </td></tr>
 </tbody>
 </table>
 </div>
@@ -15015,7 +14963,7 @@ nN, nH frente a los par´ametros epsilon y δ.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
@@ -15081,7 +15029,7 @@ nN, nH frente a los par´ametros epsilon y δ.</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
 
@@ -15124,7 +15072,7 @@ validarlos revisando los códigos, y verificando si las salidas para tamaños
 de muestra de 106 son consistentes. Indicar si se detectaron errores en
 los mismos, y en ese caso dar los códigos corregidos. Elegir uno de los
 códigos para las partes siguientes, explicar los motivos de la selecci´on.</p>
-<p><em>Por el momento sigo trabajando cno mi código en Python ya que llegué con retraso a la elección de grupo</em>.</p>
+<p><em>Por el momento sigo trabajando con mi código en Python ya que llegué con retraso a la elección de grupo</em>.</p>
 <h2 id="Parte-b">Parte b<a class="anchor-link" href="#Parte-b">&#182;</a></h2><p><strong>[Letra]</strong>: calcular la cantidad de replicaciones a realizar para garantizar
 un error menor a 1:0 × 10−4 con probabilidad 0:95, utilizando el criterio
 de peor caso de Hoeffding.</p>
@@ -15137,7 +15085,7 @@ de peor caso de Hoeffding.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tm_hoeff</span> <span class="o">=</span> <span class="n">tamMuestraHoeffding</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
@@ -15159,7 +15107,7 @@ de peor caso de Hoeffding.</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
 
@@ -15207,13 +15155,13 @@ criterio de error manejado en el punto previo.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">table3</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;Vol hiperesfera (analitico)&#39;</span><span class="p">,</span> <span class="s1">&#39;Vol hiperesfera+restricciones&#39;</span><span class="p">,</span> <span class="s1">&#39;Varianza&#39;</span><span class="p">,</span> <span class="s1">&#39;Tiempo (s)&#39;</span><span class="p">]</span> <span class="p">]</span>
 
-<span class="n">tm_hoeff</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span>
-<span class="p">(</span><span class="n">VolR</span><span class="p">,</span> <span class="n">VarVolR</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">execTime</span><span class="p">)</span> <span class="o">=</span> <span class="n">MetodoMonteCarlo</span><span class="p">(</span><span class="n">tm_hoeff</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">puntoDentroVolumen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+<span class="c1"># tm_hoeff = 10**5</span>
+<span class="p">(</span><span class="n">VolR</span><span class="p">,</span> <span class="n">VarVolR</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">execTime</span><span class="p">)</span> <span class="o">=</span> <span class="n">MetodoMonteCarloParalelo</span><span class="p">(</span><span class="n">tm_hoeff</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">puntoDentroVolumen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">table3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">[</span><span class="n">tm_hoeff</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:3e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">VolH</span><span class="p">),</span> <span class="s2">&quot;</span><span class="si">{:3e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">VolR</span><span class="p">),</span> <span class="s2">&quot;</span><span class="si">{:3e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">VarVolR</span><span class="p">),</span> <span class="s2">&quot;</span><span class="si">{:3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">execTime</span><span class="p">)]</span> <span class="p">)</span>
 
 
@@ -15235,15 +15183,15 @@ criterio de error manejado en el punto previo.</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <table>
 <tbody>
-<tr><td>N     </td><td>S </td><td>Vol hiperesfera (analitico)</td><td>Vol hiperesfera+restricciones</td><td>Varianza    </td><td>Tiempo (s)</td></tr>
-<tr><td>100000</td><td>39</td><td>9.499629e-03               </td><td>3.900000e-04                 </td><td>3.898518e-09</td><td>0.477981  </td></tr>
+<tr><td>N        </td><td>S    </td><td>Vol hiperesfera (analitico)</td><td>Vol hiperesfera+restricciones</td><td>Varianza    </td><td>Tiempo (s)</td></tr>
+<tr><td>184443973</td><td>52405</td><td>9.499629e-03               </td><td>2.841242e-04                 </td><td>1.539999e-12</td><td>447.480830</td></tr>
 </tbody>
 </table>
 </div>
@@ -15270,7 +15218,7 @@ criterio de error manejado en el punto previo.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Calculo de int de confianza por Chebyshev</span>
@@ -15317,13 +15265,13 @@ criterio de error manejado en el punto previo.</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;(3.869031e-04,3.931469e-04)&#39;</pre>
+<pre>&#39;(2.840622e-04,2.841863e-04)&#39;</pre>
 </div>
 
 </div>
@@ -15349,7 +15297,7 @@ criterio de error manejado en el punto previo.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distancia desde el min del intervalo:&quot;</span><span class="p">,</span><span class="n">VolR</span><span class="o">-</span><span class="n">i1</span><span class="p">)</span>
@@ -15375,8 +15323,8 @@ criterio de error manejado en el punto previo.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Distancia desde el min del intervalo: 3.096924749897221e-06
-Distancia desde al max del intervalo: 3.146905248647676e-06
+<pre>Distancia desde el min del intervalo: 6.203017233733952e-08
+Distancia desde al max del intervalo: 6.206651575687856e-08
 </pre>
 </div>
 </div>
@@ -15413,7 +15361,7 @@ Distancia desde al max del intervalo: 3.146905248647676e-06
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## intervalo de confianza de Agresti-Coull</span>
@@ -15454,7 +15402,7 @@ Distancia desde al max del intervalo: 3.146905248647676e-06
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>El valor obtenido para el ic según Agresti-Coull es:</p>
+<p>El valor obtenido para el intervalo de confianza según Agresti-Coull es:</p>
 
 </div>
 </div>
@@ -15464,7 +15412,7 @@ Distancia desde al max del intervalo: 3.146905248647676e-06
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">i1ac</span><span class="p">,</span> <span class="n">i2ac</span><span class="p">)</span> <span class="o">=</span> <span class="n">intConfianzaAC</span><span class="p">(</span> <span class="n">S</span><span class="p">,</span> <span class="n">tm_hoeff</span><span class="p">,</span> <span class="mf">0.05</span> <span class="p">)</span>
@@ -15486,13 +15434,13 @@ Distancia desde al max del intervalo: 3.146905248647676e-06
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;(2.838445e-04,5.345387e-04)&#39;</pre>
+<pre>&#39;(2.817023e-04,2.865669e-04)&#39;</pre>
 </div>
 
 </div>
@@ -15518,11 +15466,11 @@ Distancia desde al max del intervalo: 3.146905248647676e-06
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distancia desde el min del intervalo:&quot;</span><span class="p">,</span><span class="n">VolR</span><span class="o">-</span><span class="n">i1ac</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distancia desde al max del intervalo:&quot;</span><span class="p">,</span><span class="n">i2ac</span><span class="o">-</span><span class="n">VolR</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distancia desde el min del intervalo Agresti-Coull:&quot;</span><span class="p">,</span><span class="n">VolR</span><span class="o">-</span><span class="n">i1ac</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distancia desde al max del intervalo Agresti-Coull:&quot;</span><span class="p">,</span><span class="n">i2ac</span><span class="o">-</span><span class="n">VolR</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15544,8 +15492,8 @@ Distancia desde al max del intervalo: 3.146905248647676e-06
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Distancia desde el min del intervalo: 0.00010615550392825294
-Distancia desde al max del intervalo: 0.00014453865428347786
+<pre>Distancia desde el min del intervalo Agresti-Coull: 2.4218825640635617e-06
+Distancia desde al max del intervalo Agresti-Coull: 2.4427072108143934e-06
 </pre>
 </div>
 </div>
@@ -15561,7 +15509,7 @@ Distancia desde al max del intervalo: 0.00014453865428347786
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>El intervalo de Agresti-Coull parece considerablemente más amplio que el de Chebyshev.</p>
+<p>El intervalo de Agresti-Coull parece más amplio que el de Chebyshev.</p>
 
 </div>
 </div>
@@ -15582,7 +15530,7 @@ Distancia desde al max del intervalo: 0.00014453865428347786
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -15627,7 +15575,7 @@ Distancia desde al max del intervalo: 0.00014453865428347786
 
 
 <div class="jp-RenderedImage jp-OutputArea-output ">
-<img src="data:image/png;base64,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"
+<img src="data:image/png;base64,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"
 class="
 jp-needs-light-background
 "
