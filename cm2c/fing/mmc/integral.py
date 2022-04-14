@@ -18,7 +18,7 @@ def version():
     return _VERSION
 # end def
 
-def integracionMonteCarlo(Phi, dim, n, delta):
+def integracionMonteCarlo(Phi, dim, n):
     """
     Integracion por Montecarlo.
     Phi: funcion a integrar
@@ -44,6 +44,27 @@ def integracionMonteCarlo(Phi, dim, n, delta):
 
     return (estimZ, estimVar)
 ## end def
+
+## intervalo de confianza aproximación normal
+def intConfianzaAproxNormal(estimZ, estimV, n, delta):
+    """
+    Intervalo de confianza para la integración de Monte Carlo, según el criterio
+    de la aproximación normal.
+
+    estimZ : valor estimado de la integraal
+    estimV : valor estimado de la varianza
+    n : cantidad de iteraciones
+    delta : amplitud del intervalo de confianza
+    """
+
+    D = norm.ppf(1-delta/2)*math.sqrt(estimV)
+
+    I0 = estimZ - D
+
+    I1 = estimZ + D
+
+    return (I0, I1)
+# end def
 
 if __name__ == "__main__":
     print("Es una biblioteca, no es para correr directamente")
