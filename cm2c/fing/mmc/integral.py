@@ -12,7 +12,7 @@ import functools
 from cm2c.fing.mmc.utils import sortearPuntoRN
 from pathos.multiprocessing import ProcessPool as Pool   
 
-_VERSION = "Integracion MMC v0.1 - Carlos Martinez abril 2022"
+_VERSION = "Integracion MMC v0.1.2 - Carlos Martinez abril 2022"
 
 def version():
     return _VERSION
@@ -36,13 +36,13 @@ def integracionMonteCarlo(Phi, dim, n):
         # print(Xj, Phi(Xj))
         if j>1:
             T = T + (1-1/j)*(Phi(Xj)-S/(j-1))**2
-            S = S + Phi(Xj)
+        S = S + Phi(Xj)
     # end for
     estimZ = S / n
     estimSigma2 = T / (n-1)
     estimVar = estimSigma2 / n
 
-    return (estimZ, estimVar)
+    return (estimZ, estimVar, S, T)
 ## end def
 
 ## intervalo de confianza aproximación normal
@@ -65,6 +65,47 @@ def intConfianzaAproxNormal(estimZ, estimV, n, delta):
 
     return (I0, I1)
 # end def
+
+
+# Version paralelizada de Montecarlo
+def integracionMonteCarloParalelo(Phi, dim, n, hilos):
+    """
+        version paralelizada del montecarlo
+        N: numero de muestras
+        Phi: funcion que implementa el volumen
+        hilos: cantidad de hilos en el pool de tareas
+    """
+
+    args1 = []
+    args2 = [] 
+    args3 = []
+    for x in range(0,hilos):
+        args3.append( math.ceil(n/hilos) )
+        args2.append(dim)
+        args1.append(Phi)
+    
+    p = Pool(hilos)
+    resultados = p.map(integracionMonteCarlo, args1, args2, args3 )
+    #print(resultados)
+
+    # unir los resultados para producir el resultado final
+    Stotal = 0
+    Ntotal = 0
+    Ttotal = 0
+    for i in range(0, hilos):
+        Stotal = Stotal + resultados[i][2]
+        Ttotal = Ttotal + resultados[i][3]
+        Ntotal = Ntotal + math.ceil(n/hilos)
+    #
+    VolR = Stotal / Ntotal
+    VarVorR = (Stotal/Ntotal)*(1-Stotal/Ntotal)/(Ntotal-1)
+
+    estimZ = Stotal / Ntotal
+    estimSigma2 = Ttotal / (Ntotal-1)
+    estimVar = estimSigma2 / Ntotal    
+
+    return (estimZ, estimVar, Stotal, Ttotal)
+# end def integral montecarlo paralelo
 
 if __name__ == "__main__":
     print("Es una biblioteca, no es para correr directamente")

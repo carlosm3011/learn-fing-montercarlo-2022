@@ -9,6 +9,7 @@ scipy = "*"
 notebook = "*"
 matplotlib = "*"
 pathos = "*"
+jupyter = "*"
 
 [dev-packages]
 
