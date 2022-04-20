@@ -4,3 +4,4 @@ notebook
 matplotlib
 pathos
 jupyter
+appnope
