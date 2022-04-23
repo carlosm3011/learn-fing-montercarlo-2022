@@ -10,6 +10,10 @@ notebook = "*"
 matplotlib = "*"
 pathos = "*"
 jupyter = "*"
+appnope = "*"
+pandas = "*"
+numpy = "*"
+jupyterlab = "*"
 
 [dev-packages]
 
