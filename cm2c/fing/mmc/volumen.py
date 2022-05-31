@@ -14,13 +14,21 @@ from pathos.multiprocessing import ProcessPool as Pool
 
 random.seed()
 
-def sortearPuntoRN(dim=2):
+_VERSION = "Volúmenes en R^N MMC v0.1.1 - Carlos Martinez marzo 2022"
+
+def version():
+    return _VERSION
+# end def
+
+def sortearPuntoRN(dim, randfun):
     """
     Seortea un punto en R^N dentro del hiper-cubo [0,1]^N
+    randfun es una funcion con la misma API que random.uniform
     """
     punto = []
     for n in range(0, dim):
-        punto.append(random.uniform(0.0, 1.0))
+        # punto.append(random.uniform(0.0, 1.0))
+        punto.append(randfun(0.0, 1.0))
     # end for
 
     return punto
@@ -29,7 +37,7 @@ def sortearPuntoRN(dim=2):
 # Implemento pseudocodigo Montecarlo
 
 #@functools.lru_cache(maxsize=128)
-def MetodoMonteCarlo(N, FVolumen):
+def MetodoMonteCarlo(N, FVolumen, randfun = random.uniform):
     """
     Implementa el pseudocodigo de MC
     N: cantidad de muestras
@@ -39,7 +47,7 @@ def MetodoMonteCarlo(N, FVolumen):
     t0 = time.perf_counter()
     S = 0
     for j in range(0, N):
-        punto = sortearPuntoRN(6)
+        punto = sortearPuntoRN(6, randfun)
         if FVolumen(punto):
             phi = 1
         else: 
@@ -52,23 +60,26 @@ def MetodoMonteCarlo(N, FVolumen):
 # end def
 
 # Version paralelizada de Montecarlo
-def MetodoMonteCarloParalelo(N, FVolumen, hilos):
+def MetodoMonteCarloParalelo(N, hilos, FVolumen, randfun=random.uniform):
     """
         version paralelizada del montecarlo
         N: numero de muestras
         FVolumen: funcion que implementa el volumen
+        randfun: funcion para generar numeros aleatorios con la misma firma que random.uniform()
         hilos: cantidad de hilos en el pool de tareas
     """
     t0 = time.perf_counter()
 
     args1 = []
     args2 = [] 
+    args3 = []
     for x in range(0,hilos):
         args1.append( math.ceil(N/hilos) )
         args2.append(FVolumen)
+        args3.append(randfun)
     
     p = Pool(hilos)
-    resultados = p.map(MetodoMonteCarlo, args1, args2 )
+    resultados = p.map(MetodoMonteCarlo, args1, args2, args3 )
     #print(resultados)
 
     # unir los resultados para producir el resultado final
