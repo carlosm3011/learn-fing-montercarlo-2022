@@ -8,3 +8,4 @@ jupyterlab
 appnope
 pandas
 numpy
+nbconvert

@@ -12,18 +12,19 @@ import functools
 from cm2c.fing.mmc.utils import sortearPuntoRN
 from pathos.multiprocessing import ProcessPool as Pool   
 
-_VERSION = "Integracion MMC v0.1.2 - Carlos Martinez abril 2022"
+_VERSION = "Integracion MMC v0.1.3 - Carlos Martinez abril-mayo 2022"
 
 def version():
     return _VERSION
 # end def
 
-def integracionMonteCarlo(Phi, dim, n):
+def integracionMonteCarlo(Phi, dim, n, sortearPunto):
     """
     Integracion por Montecarlo.
     Phi: funcion a integrar
     n: tamaño de la muestra (cantidad de iteraciones)
     dim: dimensionalidad del problema
+    sortearPunto: funcion que sortea un punto en un espacio dim-dimensional
     delta: intervalo de confianza
 
     Resultado: (estimacion valor integral, estimacion varianza)
@@ -32,7 +33,7 @@ def integracionMonteCarlo(Phi, dim, n):
     T = 0
     for j in range(1, n+1):
         # sortear X({j} con distribución uniforme en R(n)
-        Xj = sortearPuntoRN(dim)
+        Xj = sortearPuntoRN()
         # print(Xj, Phi(Xj))
         if j>1:
             T = T + (1-1/j)*(Phi(Xj)-S/(j-1))**2
@@ -44,6 +45,35 @@ def integracionMonteCarlo(Phi, dim, n):
 
     return (estimZ, estimVar, S, T)
 ## end def
+
+def integracionMonteCarloStieltjes(Kappa, dim, n, sortearPunto):
+    """
+    Integracion por Montecarlo.
+    Phi: funcion a integrar
+    n: tamaño de la muestra (cantidad de iteraciones)
+    dim: dimensionalidad del problema
+    sortearPunto: funcion que sortea un punto en un espacio dim-dimensional con una cierta distribucion F
+    delta: intervalo de confianza
+
+    Resultado: (estimacion valor integral, estimacion varianza)
+    """
+    S = 0
+    T = 0
+    for j in range(1, n+1):
+        # sortear Z({j} con distribución dF en R(n)
+        Zj = sortearPunto('dummy')
+        # print(Xj, Phi(Xj))
+        if j>1:
+            T = T + (1-1/j)*(Kappa(Zj)-S/(j-1))**2
+        S = S + Kappa(Zj)
+    # end for
+    estimZ = S / n
+    estimSigma2 = T / (n-1)
+    estimVar = estimSigma2 / n
+
+    return (estimZ, estimVar, S, T)
+## end def
+
 
 ## intervalo de confianza aproximación normal
 def intConfianzaAproxNormal(estimZ, estimV, n, delta):
