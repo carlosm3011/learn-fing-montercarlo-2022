@@ -1,6 +1,8 @@
 """
 Montecarlo para integrales.
-(c) Carlos M. martinez, marzo-abril 2022
+(c) Carlos M. martinez, marzo-abril 2022, abril 2025.
+
+Abril 2025: arreglado un bug en la integración en paralelo
 """
 
 import random
@@ -12,28 +14,27 @@ import functools
 from cm2c.fing.mmc.utils import sortearPuntoRN
 from pathos.multiprocessing import ProcessPool as Pool   
 
-_VERSION = "Integracion MMC v0.1.3 - Carlos Martinez abril-mayo 2022"
+_VERSION = "Integracion MMC v0.1.4 - Carlos Martinez abril-mayo 2022, abril 2025."
 
 def version():
     return _VERSION
 # end def
 
-def integracionMonteCarlo(Phi, dim, n, sortearPunto):
+def integracionMonteCarlo(Phi, n, sortearPunto):
     """
     Integracion por Montecarlo.
     Phi: funcion a integrar
     n: tamaño de la muestra (cantidad de iteraciones)
-    dim: dimensionalidad del problema
     sortearPunto: funcion que sortea un punto en un espacio dim-dimensional
     delta: intervalo de confianza
 
-    Resultado: (estimacion valor integral, estimacion varianza)
+    Resultado: (estimacion valor integral, estimacion varianza, cant. puntos dentro, T)
     """
     S = 0
     T = 0
     for j in range(1, n+1):
         # sortear X({j} con distribución uniforme en R(n)
-        Xj = sortearPuntoRN()
+        Xj = sortearPunto(0)
         # print(Xj, Phi(Xj))
         if j>1:
             T = T + (1-1/j)*(Phi(Xj)-S/(j-1))**2
@@ -46,7 +47,7 @@ def integracionMonteCarlo(Phi, dim, n, sortearPunto):
     return (estimZ, estimVar, S, T)
 ## end def
 
-def integracionMonteCarloStieltjes(Kappa, dim, n, sortearPunto):
+def integracionMonteCarloStieltjes(Kappa, n, sortearPunto):
     """
     Integracion por Montecarlo.
     Phi: funcion a integrar
@@ -98,11 +99,13 @@ def intConfianzaAproxNormal(estimZ, estimV, n, delta):
 
 
 # Version paralelizada de Montecarlo
-def integracionMonteCarloParalelo(Phi, dim, n, hilos):
+def integracionMonteCarloParalelo(Phi, n, sortearPunto, hilos):
     """
-        version paralelizada del montecarlo
-        N: numero de muestras
+        Version paralelizada del metodo Monte Carlo
+        
         Phi: funcion que implementa el volumen
+        N: numero de muestras
+        sortearPunto : funcion que sortea puntos en RN
         hilos: cantidad de hilos en el pool de tareas
     """
 
@@ -110,8 +113,8 @@ def integracionMonteCarloParalelo(Phi, dim, n, hilos):
     args2 = [] 
     args3 = []
     for x in range(0,hilos):
-        args3.append( math.ceil(n/hilos) )
-        args2.append(dim)
+        args3.append( sortearPunto )
+        args2.append( math.ceil(n/hilos) )
         args1.append(Phi)
     
     p = Pool(hilos)

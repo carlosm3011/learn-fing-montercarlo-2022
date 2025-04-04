@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px 'PT Mono'}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px 'PT Mono'; min-height: 11.0px}
+  </style>
+</head>
+<body>
+<p class="p1">"""</p>
+<p class="p1">Montecarlo para integrales.</p>
+<p class="p1">(c) Carlos M. martinez, marzo-abril 2022, abril 2025.</p>
+<p class="p2"><br></p>
+<p class="p1">Abril 2025: arreglado un bug en la integración en paralelo</p>
+<p class="p1">"""</p>
+<p class="p2"><br></p>
+<p class="p1">import random</p>
+<p class="p1">import math</p>
+<p class="p1">import tabulate</p>
+<p class="p1">import time</p>
+<p class="p1">from scipy.stats import norm</p>
+<p class="p1">import functools</p>
+<p class="p1">from cm2c.fing.mmc.utils import sortearPuntoRN</p>
+<p class="p1">from pathos.multiprocessing import ProcessPool as Pool<span class="Apple-converted-space">   </span></p>
+<p class="p2"><br></p>
+<p class="p1">_VERSION = "Integracion MMC v0.1.4 - Carlos Martinez abril-mayo 2022, abril 2025."</p>
+<p class="p2"><br></p>
+<p class="p1">def version():</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return _VERSION</p>
+<p class="p1"># end def</p>
+<p class="p2"><br></p>
+<p class="p1">def integracionMonteCarlo(Phi, n, sortearPunto):</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"""</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Integracion por Montecarlo.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Phi: funcion a integrar</p>
+<p class="p1"><span class="Apple-converted-space">    </span>n: tamaño de la muestra (cantidad de iteraciones)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sortearPunto: funcion que sortea un punto en un espacio dim-dimensional</p>
+<p class="p1"><span class="Apple-converted-space">    </span>delta: intervalo de confianza</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>Resultado: (estimacion valor integral, estimacion varianza, cant. puntos dentro, T)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"""</p>
+<p class="p1"><span class="Apple-converted-space">    </span>S = 0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>T = 0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for j in range(1, n+1):</p>
+<p class="p1"><span class="Apple-converted-space">        </span># sortear X({j} con distribución uniforme en R(n)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Xj = sortearPunto(0)</p>
+<p class="p1"><span class="Apple-converted-space">        </span># print(Xj, Phi(Xj))</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if j&gt;1:</p>
+<p class="p1"><span class="Apple-converted-space">            </span>T = T + (1-1/j)*(Phi(Xj)-S/(j-1))**2</p>
+<p class="p1"><span class="Apple-converted-space">        </span>S = S + Phi(Xj)</p>
+<p class="p1"><span class="Apple-converted-space">    </span># end for</p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimZ = S / n</p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimSigma2 = T / (n-1)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimVar = estimSigma2 / n</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>return (estimZ, estimVar, S, T)</p>
+<p class="p1">## end def</p>
+<p class="p2"><br></p>
+<p class="p1">def integracionMonteCarloStieltjes(Kappa, n, sortearPunto):</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"""</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Integracion por Montecarlo.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Phi: funcion a integrar</p>
+<p class="p1"><span class="Apple-converted-space">    </span>n: tamaño de la muestra (cantidad de iteraciones)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>dim: dimensionalidad del problema</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sortearPunto: funcion que sortea un punto en un espacio dim-dimensional con una cierta distribucion F</p>
+<p class="p1"><span class="Apple-converted-space">    </span>delta: intervalo de confianza</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>Resultado: (estimacion valor integral, estimacion varianza)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"""</p>
+<p class="p1"><span class="Apple-converted-space">    </span>S = 0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>T = 0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for j in range(1, n+1):</p>
+<p class="p1"><span class="Apple-converted-space">        </span># sortear Z({j} con distribución dF en R(n)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Zj = sortearPunto('dummy')</p>
+<p class="p1"><span class="Apple-converted-space">        </span># print(Xj, Phi(Xj))</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if j&gt;1:</p>
+<p class="p1"><span class="Apple-converted-space">            </span>T = T + (1-1/j)*(Kappa(Zj)-S/(j-1))**2</p>
+<p class="p1"><span class="Apple-converted-space">        </span>S = S + Kappa(Zj)</p>
+<p class="p1"><span class="Apple-converted-space">    </span># end for</p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimZ = S / n</p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimSigma2 = T / (n-1)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimVar = estimSigma2 / n</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>return (estimZ, estimVar, S, T)</p>
+<p class="p1">## end def</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">## intervalo de confianza aproximación normal</p>
+<p class="p1">def intConfianzaAproxNormal(estimZ, estimV, n, delta):</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"""</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Intervalo de confianza para la integración de Monte Carlo, según el criterio</p>
+<p class="p1"><span class="Apple-converted-space">    </span>de la aproximación normal.</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimZ : valor estimado de la integraal</p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimV : valor estimado de la varianza</p>
+<p class="p1"><span class="Apple-converted-space">    </span>n : cantidad de iteraciones</p>
+<p class="p1"><span class="Apple-converted-space">    </span>delta : amplitud del intervalo de confianza</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"""</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>D = norm.ppf(1-delta/2)*math.sqrt(estimV)</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>I0 = estimZ - D</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>I1 = estimZ + D</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>return (I0, I1)</p>
+<p class="p1"># end def</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"># Version paralelizada de Montecarlo</p>
+<p class="p1">def integracionMonteCarloParalelo(Phi, n, sortearPunto, hilos):</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"""</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Version paralelizada del metodo Monte Carlo</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>Phi: funcion que implementa el volumen</p>
+<p class="p1"><span class="Apple-converted-space">        </span>N: numero de muestras</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sortearPunto : funcion que sortea puntos en RN</p>
+<p class="p1"><span class="Apple-converted-space">        </span>hilos: cantidad de hilos en el pool de tareas</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"""</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>args1 = []</p>
+<p class="p1"><span class="Apple-converted-space">    </span>args2 = []<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>args3 = []</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for x in range(0,hilos):</p>
+<p class="p1"><span class="Apple-converted-space">        </span>args3.append( sortearPunto )</p>
+<p class="p1"><span class="Apple-converted-space">        </span>args2.append( math.ceil(n/hilos) )</p>
+<p class="p1"><span class="Apple-converted-space">        </span>args1.append(Phi)</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>p = Pool(hilos)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>resultados = p.map(integracionMonteCarlo, args1, args2, args3 )</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#print(resultados)</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span># unir los resultados para producir el resultado final</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Stotal = 0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Ntotal = 0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Ttotal = 0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for i in range(0, hilos):</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Stotal = Stotal + resultados[i][2]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Ttotal = Ttotal + resultados[i][3]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Ntotal = Ntotal + math.ceil(n/hilos)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#</p>
+<p class="p1"><span class="Apple-converted-space">    </span>VolR = Stotal / Ntotal</p>
+<p class="p1"><span class="Apple-converted-space">    </span>VarVorR = (Stotal/Ntotal)*(1-Stotal/Ntotal)/(Ntotal-1)</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimZ = Stotal / Ntotal</p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimSigma2 = Ttotal / (Ntotal-1)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>estimVar = estimSigma2 / Ntotal <span class="Apple-converted-space">   </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>return (estimZ, estimVar, Stotal, Ttotal)</p>
+<p class="p1"># end def integral montecarlo paralelo</p>
+<p class="p2"><br></p>
+<p class="p1">if __name__ == "__main__":</p>
+<p class="p1"><span class="Apple-converted-space">    </span>print("Es una biblioteca, no es para correr directamente")</p>
+</body>
+</html>

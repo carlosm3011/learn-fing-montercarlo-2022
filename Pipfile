@@ -10,13 +10,13 @@ notebook = "*"
 matplotlib = "*"
 pathos = "*"
 jupyter = "*"
+jupyterlab = "*"
 appnope = "*"
 pandas = "*"
 numpy = "*"
-jupyterlab = "*"
 nbconvert = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3.13"

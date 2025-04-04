@@ -5,6 +5,8 @@ Utils para Montecarlo
 
 import random
 import time
+import math
+from scipy.stats import norm
 
 class timeit:
     """
@@ -25,25 +27,6 @@ class timeit:
         self._t0 = time.perf_counter()
 # end class timeit
 
-# def timeit(method):
-#     """
-#     Medición de ejecución, para usar como decorador
-#     method: es una función a medir su tiempo
-#     imprime el resultado
-#     """
-#     def timed(*args, **kw):
-#         ts = time.time()
-#         result = method(*args, **kw)
-#         te = time.time()
-#         if 'log_time' in kw:
-#             name = kw.get('log_name', method.__name__.upper())
-#             kw['log_time'][name] = int((te - ts) * 1000)
-#         else:
-#             print ('%r  %2.2f ms' % \
-#                   (method.__name__, (te - ts) * 1000) ) 
-#         return result
-#     return timed
-
 def sortearPuntoRN(dim=2):
     """
     Seortea un punto en R^N dentro del hiper-cubo [0,1]^N
@@ -55,6 +38,32 @@ def sortearPuntoRN(dim=2):
 
     return punto
 # end fun sortearPuntoRN
+
+def sortearPuntoRNRangos(dim, rangos):
+    """
+    Seortea un punto en R^N dentro del hiper-cubo [0,1]^N pero contemplando rangos por dimensión.
+
+    Parámetros:
+    dim: dimensión del vector
+    rangos: vector de pares, [ (x0, x1), ... ]
+    """
+    punto = []
+    for n in range(0, dim):
+        punto.append(random.uniform(rangos[n][0], rangos[n][1]))
+    # end for
+
+    return punto
+# end fun sortearPuntoRN
+
+## Estimar numero de replicaciones para obtener ciertos errores y varianzas
+def npuntoN(delta_, epsilon_, estimV_, n_):
+    """
+    npuntoN: devuelve el numero de muestra estimado para una cierta variana y cierto error
+    """
+    x = (norm.ppf(1-delta_/2)**2)*estimV_*n_/(epsilon_**2)
+    return math.ceil(x)
+## end def
+
 
 random.seed()
 
